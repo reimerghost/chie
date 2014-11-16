@@ -4,5 +4,7 @@
     <string name="app_name">CHIE</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_camara">Lector QR</string>
+    <string name="title_activity_menu_comentar">MenuComentar</string>
 
 </resources>
