@@ -45,6 +45,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
  
         final String childText = ((list_item) getChild(groupPosition, childPosition)).getTextView();
         final String childRate = ((list_item) getChild(groupPosition, childPosition)).getRatingBar();
+        final boolean is = ((list_item) getChild(groupPosition, childPosition)).esTexto();
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this._context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -56,7 +57,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         RatingBar rbRatingBar = (RatingBar)convertView
                 .findViewById(R.id.rbListItem);
         
-        if(childPosition == 5){
+        if(is){
         	rbRatingBar.setVisibility(View.GONE);
         	txtListChild.setText(childText + "\n\n" + childRate+ "\n");
         }

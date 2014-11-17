@@ -51,7 +51,6 @@ public class MenuQR extends ActionBarActivity {
 			public void onClick(View v) {
 				Intent intent = new Intent(MenuQR.this, EvaluacionesAnteriores.class);
 				startActivity(intent);
-				finish();
 			}
 		});
 	}

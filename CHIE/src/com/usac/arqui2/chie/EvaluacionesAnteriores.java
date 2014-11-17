@@ -42,9 +42,13 @@ public class EvaluacionesAnteriores extends ActionBarActivity {
  
         // setting list adapter
        
+        if(listDataHeader.size() > 0){
+        	evas.setAdapter(listAdapter);
+        }
+        else{
+        	setTitle("No hay Evaluaciones Anteriores");
+        }
         
-       
-        evas.setAdapter(listAdapter);
 	}
 
 	@Override
@@ -84,17 +88,25 @@ public class EvaluacionesAnteriores extends ActionBarActivity {
         metricas.add("Metrica 3");
         metricas.add("Metrica 4");
         metricas.add("Metrica 5");
-               
-        List<list_item> valores = new ArrayList<list_item>();
-        valores.add(new list_item(metricas.get(0),"1.0"));
-        valores.add(new list_item(metricas.get(1),"2.0"));
-        valores.add(new list_item(metricas.get(2),"3.0"));
-        valores.add(new list_item(metricas.get(3),"4.0"));
-        valores.add(new list_item(metricas.get(4),"5.0"));
-        valores.add(new list_item("Comentario","Comentario fjaldksfjk lasdj fñlkasdj fñasdjf ñlasdjfñl asdjfasdñlfjkl ns"));
-        listDataChild.put(listDataHeader.get(0), valores); // Header, Child data
+        for(int i = 0; i < listDataHeader.size(); i++){
+        	List<list_item> valores = new ArrayList<list_item>();
+	        valores.add(new list_item(metricas.get(0),String.valueOf((float)i), false));
+	        valores.add(new list_item(metricas.get(1),String.valueOf((float)i), false));
+	        valores.add(new list_item(metricas.get(2),String.valueOf((float)i), false));
+	        valores.add(new list_item(metricas.get(3),String.valueOf((float)i), false));
+	        valores.add(new list_item(metricas.get(4),String.valueOf((float)i), false));
+	        valores.add(new list_item("Comentario","Comentario fjaldksfjk lasdj fñlkasdj fñasdjf ñlasdjfñl asdjfasdñlfjkl ns", true));
+	        listDataChild.put(listDataHeader.get(i), valores); // Header, Child data
+        }
+       /* valores.clear();
+        valores = new ArrayList<list_item>();
+        valores.add(new list_item(metricas.get(0),"1.5", false));
+        valores.add(new list_item(metricas.get(1),"2.5", false));
+        valores.add(new list_item(metricas.get(2),"3.5", false));
+        valores.add(new list_item(metricas.get(3),"4.5", false));
+        valores.add(new list_item(metricas.get(4),"5.0", false));
         listDataChild.put(listDataHeader.get(1), valores);
-        listDataChild.put(listDataHeader.get(2), valores);
+        listDataChild.put(listDataHeader.get(2), valores);*/
     }
 }
 
