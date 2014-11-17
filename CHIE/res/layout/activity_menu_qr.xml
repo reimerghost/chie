@@ -8,87 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.usac.arqui2.chie.MenuQR" >
 
-    <TextView
-        android:id="@+id/qrAtributo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/text_tv_bus_numero" />
-
-    <TextView
-        android:id="@+id/qrAtributo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrAtributo1"
-        android:layout_below="@+id/qrAtributo1"
-        android:layout_marginTop="14dp"
-        android:text="@string/text_tv_bus_placa" />
-
-    <TextView
-        android:id="@+id/qrAtributo3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrAtributo2"
-        android:layout_below="@+id/qrAtributo2"
-        android:layout_marginTop="16dp"
-        android:text="@string/text_tv_bus_ruta" />
-
-    <TextView
-        android:id="@+id/qrAtributo4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrAtributo3"
-        android:layout_below="@+id/qrAtributo3"
-        android:layout_marginTop="17dp"
-        android:text="@string/text_tv_piloto_nombre" />
-
-    <TextView
-        android:id="@+id/qrValor1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/qrAtributo1"
-        android:layout_marginLeft="27dp"
-        android:layout_toRightOf="@+id/qrAtributo4"
-        android:text="Medium Text Nume"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/qrValor2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrValor1"
-        android:layout_alignRight="@+id/qrValor1"
-        android:layout_alignTop="@+id/qrAtributo2"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/qrValor3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrValor2"
-        android:layout_alignRight="@+id/qrValor2"
-        android:layout_alignTop="@+id/qrAtributo3"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/qrValor4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrValor3"
-        android:layout_alignRight="@+id/qrValor3"
-        android:layout_alignTop="@+id/qrAtributo4"
-        android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <Button
         android:id="@+id/btEvaluar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/qrAtributo4"
-        android:layout_alignRight="@+id/qrValor4"
-        android:layout_below="@+id/qrValor4"
-        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
         android:text="@string/text_bot_evaluar" />
 
     <Button
@@ -96,9 +20,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/btEvaluar"
-        android:layout_alignRight="@+id/btEvaluar"
         android:layout_below="@+id/btEvaluar"
-        android:layout_marginTop="23dp"
         android:text="@string/text_bot_ver_evaluaciones" />
+
+    <TextView
+        android:id="@+id/qrResumen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btVerEvaluaciones"
+        android:layout_below="@+id/btVerEvaluaciones"
+        android:layout_marginTop="18dp"
+        android:text="@string/text_tv_bus_numero" />
 
 </RelativeLayout>

@@ -43,6 +43,10 @@
             android:name=".EvaluacionesAnteriores"
             android:label="@string/title_activity_evaluaciones_anteriores" >
         </activity>
+        <activity
+            android:name=".Consumir"
+            android:label="@string/title_activity_consumir" >
+        </activity>
     </application>
 
 </manifest>

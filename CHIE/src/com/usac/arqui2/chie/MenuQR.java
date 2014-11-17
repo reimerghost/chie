@@ -1,6 +1,11 @@
 package com.usac.arqui2.chie;
 
+import com.usac.arqui2.chie.webservice.Solicitud;
+
 import android.support.v7.app.ActionBarActivity;
+import android.text.Html;
+import android.text.Spanned;
+import android.util.Log;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -19,14 +24,22 @@ public class MenuQR extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_qr);
-		txview = (TextView)findViewById(R.id.qrValor1);
+		txview = (TextView)findViewById(R.id.qrResumen);
 		eval = (Button) findViewById(R.id.btEvaluar);
 		vere = (Button) findViewById(R.id.btVerEvaluaciones);
 		codigo = getIntent().getStringExtra("string-codigo");
-		txview.setText(codigo);
+		/*
+		 * TODO: Consumir WebService para obtener el Resumen
+		 * 
+		 */
+		Spanned contenido = Html.fromHtml("<p><b>RESUMEN: </b></p>" +
+				"<p>abc</p>");
+		txview.setText(contenido);
 		eval.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				Log.i("TEST", "Presiona Evaluar");
+				Solicitud s = new Solicitud();
 				
 				/*Intent intent = new Intent(MenuQR.this, Camara.class);
 				startActivity(intent);
