@@ -1,6 +1,5 @@
 package com.usac.arqui2.chie;
 
-import com.usac.arqui2.chie.webservice.Grabador;
 import com.usac.arqui2.chie.webservice.Solicitud;
 
 import android.support.v7.app.ActionBarActivity;
@@ -39,14 +38,10 @@ public class MenuQR extends ActionBarActivity {
 		eval.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Log.i("TEST", "Presiona Evaluar");
-				Solicitud s = new Solicitud();
-				Grabador g = new Grabador();
-				g.insertarUsuario("testing2");
-				
-				/*Intent intent = new Intent(MenuQR.this, Camara.class);
+				/*Log.i("TEST", "Presiona Evaluar");
+				Solicitud s = new Solicitud();*/
+				Intent intent = new Intent(MenuQR.this, MenuComentar.class);
 				startActivity(intent);
-				finish();*/
 			}
 		});
 		vere.setOnClickListener(new View.OnClickListener() {

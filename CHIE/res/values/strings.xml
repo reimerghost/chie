@@ -18,5 +18,5 @@
     <string name="text_bot_evaluar">Evaluar</string>
     <string name="title_activity_evaluaciones_anteriores">Evaluaciones Anteriores</string>
     <string name="title_activity_consumir">Consumir</string>
-
+	<string name="tv_evaluar_comentario">Comentario</string>
 </resources>

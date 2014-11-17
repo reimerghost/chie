@@ -2,6 +2,7 @@ package com.usac.arqui2.chie;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ExpandableListView;
@@ -9,6 +10,9 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.view.View;
@@ -73,40 +77,49 @@ public class EvaluacionesAnteriores extends ActionBarActivity {
      * Preparing the list data
      */
     private void prepareListData() {
+    	
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<list_item>>();
- 
-        // Adding child data
-        listDataHeader.add("Evaluacion 1: 11/11/2014");
-        listDataHeader.add("Evaluacion 2: 12/11/2014");
-        listDataHeader.add("Evaluacion 3: 13/11/2014");
- 
-        // Adding child data
-        List<String> metricas = new ArrayList<String>();
-        metricas.add("Metrica 1");
-        metricas.add("Metrica 2");
-        metricas.add("Metrica 3");
-        metricas.add("Metrica 4");
-        metricas.add("Metrica 5");
-        for(int i = 0; i < listDataHeader.size(); i++){
-        	List<list_item> valores = new ArrayList<list_item>();
-	        valores.add(new list_item(metricas.get(0),String.valueOf((float)i), false));
-	        valores.add(new list_item(metricas.get(1),String.valueOf((float)i), false));
-	        valores.add(new list_item(metricas.get(2),String.valueOf((float)i), false));
-	        valores.add(new list_item(metricas.get(3),String.valueOf((float)i), false));
-	        valores.add(new list_item(metricas.get(4),String.valueOf((float)i), false));
-	        valores.add(new list_item("Comentario","Comentario fjaldksfjk lasdj fñlkasdj fñasdjf ñlasdjfñl asdjfasdñlfjkl ns", true));
-	        listDataChild.put(listDataHeader.get(i), valores); // Header, Child data
+        //LLAMAR METODO QUE DEVULEVE JSON DE LOS NOMBRES DE LAS METRICAS
+    	//Asignar el resultado a la variable JSON
+        String JSON = "[{\"id_metrica\":\"1\",\"nombre\":\"Estado del bus\"},{\"id_metrica\":\"2\",\"nombre\":\"Puntualidad\"},{\"id_metrica\":\"3\",\"nombre\":\"Capacidad del bus\"},{\"id_metrica\":\"4\",\"nombre\":\"Actitud del conductor\"},{\"id_metrica\":\"5\",\"nombre\":\"Habilidad del conductor\"}]";
+        
+        try{
+        	JSONArray jsa = new JSONArray(JSON);
+	        List<String> metricas = new ArrayList<String>();
+	        for(int i = 0; i < jsa.length(); i++){
+	        	JSONObject JSO = jsa.getJSONObject(i);
+	        	String nombre = JSO.getString("nombre");
+	        	metricas.add(nombre);
+	        }
+	        //LLAMAR METODO QUE DEVULEVE JSON DE LAS EVALUACIONES
+	    	//Asignar el resultado a la variable JSON
+	        JSON = "[{\"id\":\"1\",\"fecha\":\"11/11/1111\",\"metrica1\":\"2.0\",\"metrica2\":\"3.0\",\"metrica3\":\"4.0\",\"metrica4\":\"5.0\",\"metrica5\":\"0.0\",\"comentario\":\"cOMENAJFD ASDLF JASDJBHBKKBJFAS\"},{\"id\":\"2\",\"fecha\":\"22/22/2222\",\"metrica1\":\"2.0\",\"metrica2\":\"3.0\",\"metrica3\":\"4.0\",\"metrica4\":\"5.0\",\"metrica5\":\"0.0\",\"comentario\":\"cOMENAJFD ASDLF JASDJBHBKKBJFAS\"},{\"id\":\"3\",\"fecha\":\"33/33/1111\",\"metrica1\":\"2.0\",\"metrica2\":\"3.0\",\"metrica3\":\"4.0\",\"metrica4\":\"5.0\",\"metrica5\":\"0.0\",\"comentario\":\"cOMENAJFD ASDLF JASDJBHBKKBJFAS\"},{\"id\":\"4\",\"fecha\":\"55/55/5555\",\"metrica1\":\"2.0\",\"metrica2\":\"3.0\",\"metrica3\":\"4.0\",\"metrica4\":\"5.0\",\"metrica5\":\"0.0\",\"comentario\":\"cOMENAJFD ASDLF JASDJBHBKKBJFAS\"}]";
+	        jsa = new JSONArray(JSON);
+	        
+	        for(int i = 0; i < jsa.length(); i++){
+	        	JSONObject JSO = jsa.getJSONObject(i);
+	        	String id = JSO.getString("id");
+	        	String fe = JSO.getString("fecha");
+	        	String m1 = JSO.getString("metrica1");
+	        	String m2 = JSO.getString("metrica2");
+	        	String m3 = JSO.getString("metrica3");
+	        	String m4 = JSO.getString("metrica4");
+	        	String m5 = JSO.getString("metrica5");
+	        	String co = JSO.getString("comentario");
+	        	listDataHeader.add("Evaluacion " + id + ": " + fe);
+	        	List<list_item> valores = new ArrayList<list_item>();
+		        valores.add(new list_item(metricas.get(0),m1, false));
+		        valores.add(new list_item(metricas.get(1),m2, false));
+		        valores.add(new list_item(metricas.get(2),m3, false));
+		        valores.add(new list_item(metricas.get(3),m4, false));
+		        valores.add(new list_item(metricas.get(4),m5, false));
+		        valores.add(new list_item("Comentario",co, true));
+		        listDataChild.put(listDataHeader.get(i), valores);
+	        }
+        }catch(Exception e){
+        	Log.w("erro", e.toString());
         }
-       /* valores.clear();
-        valores = new ArrayList<list_item>();
-        valores.add(new list_item(metricas.get(0),"1.5", false));
-        valores.add(new list_item(metricas.get(1),"2.5", false));
-        valores.add(new list_item(metricas.get(2),"3.5", false));
-        valores.add(new list_item(metricas.get(3),"4.5", false));
-        valores.add(new list_item(metricas.get(4),"5.0", false));
-        listDataChild.put(listDataHeader.get(1), valores);
-        listDataChild.put(listDataHeader.get(2), valores);*/
     }
 }
 
