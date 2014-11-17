@@ -28,10 +28,14 @@ public class MenuQR extends ActionBarActivity {
 		eval = (Button) findViewById(R.id.btEvaluar);
 		vere = (Button) findViewById(R.id.btVerEvaluaciones);
 		codigo = getIntent().getStringExtra("string-codigo");
+		String[] separados = codigo.split(":");
+		String id_servicio = separados[0];
+		String id_unidad = separados[1];
 		/*
 		 * TODO: Consumir WebService para obtener el Resumen
 		 * 
 		 */
+		//this.setTitle("Informacion de " + id_unidad + " " + id_servicio);
 		Spanned contenido = Html.fromHtml("<p><b>RESUMEN: </b></p>" +
 				"<p>abc</p>");
 		txview.setText(contenido);
