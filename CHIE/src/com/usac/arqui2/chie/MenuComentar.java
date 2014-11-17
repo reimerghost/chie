@@ -4,13 +4,18 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MenuComentar extends ActionBarActivity {
-
+	private TextView TVmensaje;
+	private String codigo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_menu_comentar);
+		TVmensaje = (TextView)findViewById(R.id.mensaje_comentar);
+		codigo = getIntent().getStringExtra("string-codigo");
+		TVmensaje.setText(codigo);
 	}
 
 	@Override

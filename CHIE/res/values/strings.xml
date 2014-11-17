@@ -6,5 +6,16 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_camara">Lector QR</string>
     <string name="title_activity_menu_comentar">MenuComentar</string>
+    <string name="text_bot_leer">Leer QR</string>
+    <string name="text_lab_evaluaciones">Evaluaciones Realizadas:</string>
+    <string name="cont_evaluaciones"></string>
+    <string name="title_activity_menu_qr">Información QR escaneado.</string>
+    <string name="text_tv_bus_numero">Bus Numero:</string>
+    <string name="text_tv_bus_placa">Bus Con Placa:</string>
+    <string name="text_tv_bus_ruta">Bus Con Ruta:</string>
+    <string name="text_tv_piloto_nombre">Conducido por:</string>
+    <string name="text_bot_ver_evaluaciones">Ver Evaluaciones Anteriores</string>
+    <string name="text_bot_evaluar">Evaluar</string>
+    <string name="title_activity_evaluaciones_anteriores">Evaluaciones Anteriores</string>
 
 </resources>

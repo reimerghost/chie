@@ -35,6 +35,14 @@
             android:name=".MenuComentar"
             android:label="@string/title_activity_menu_comentar" >
         </activity>
+        <activity
+            android:name=".MenuQR"
+            android:label="@string/title_activity_menu_qr" >
+        </activity>
+        <activity
+            android:name=".EvaluacionesAnteriores"
+            android:label="@string/title_activity_evaluaciones_anteriores" >
+        </activity>
     </application>
 
 </manifest>

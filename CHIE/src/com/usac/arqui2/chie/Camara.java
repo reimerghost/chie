@@ -1,23 +1,21 @@
 package com.usac.arqui2.chie;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.FrameLayout;
 import android.widget.Button;
-
 import android.hardware.Camera;
 import android.hardware.Camera.PreviewCallback;
 import android.hardware.Camera.AutoFocusCallback;
 import android.hardware.Camera.Parameters;
 import android.hardware.Camera.Size;
-
 import android.widget.TextView;
 import android.graphics.ImageFormat;
 
@@ -131,8 +129,13 @@ public class Camara extends Activity
                     
                     SymbolSet syms = scanner.getResults();
                     for (Symbol sym : syms) {
-                        scanText.setText("Resultado: " + sym.getData());
+                    	String codigo = sym.getData();
+                        scanText.setText("Resultado: " + codigo);
                         barcodeScanned = true;
+                        Intent intent = new Intent(getApplicationContext(), MenuQR.class);
+						intent.putExtra("string-codigo", codigo);
+						startActivity(intent);
+						finish();
                     }
                 }
             }
