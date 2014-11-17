@@ -11,19 +11,22 @@ import org.ksoap2.transport.HttpTransportSE;
 import android.util.Log;
 
 public class Solicitud {
-
-	public Solicitud() {
-		getDatos("10");
-	}
-
+	
 	// Estos datos los proporciona el webService
 	final String NAMESPACE = "http://ws-chie.rhcloud.com/webservice/Servicios.php?wsdl";
 	final String URL = "http://ws-chie.rhcloud.com/webservice/Servicios.php";
+	String METHOD_NAME = "";
+	String SOAP_ACTION = "";
+	public Solicitud() {
+	}
 
-	final String METHOD_NAME = "getMetrica";
-	final String SOAP_ACTION = "http://ws-chie.rhcloud.com/webservice/Servicios.php/getMetrica";
+	
+	
+	public void getDatos(String dato) {		
 
-	public void getDatos(String dato) {
+		String METHOD_NAME = "getMetrica";
+		String SOAP_ACTION = "http://ws-chie.rhcloud.com/webservice/Servicios.php/getMetrica";
+		
 		// Se instancia un objeto soap pasandole el namespace y el metodo del
 		// webservice a consumir
 		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
