@@ -18,11 +18,10 @@ public class Solicitud {
 	String METHOD_NAME = "";
 	String SOAP_ACTION = "";
 	public Solicitud() {
+		getMetricas("1");
 	}
-
 	
-	
-	public void getDatos(String dato) {		
+	public void getMetricas(String dato) {		
 
 		String METHOD_NAME = "getMetrica";
 		String SOAP_ACTION = "http://ws-chie.rhcloud.com/webservice/Servicios.php/getMetrica";

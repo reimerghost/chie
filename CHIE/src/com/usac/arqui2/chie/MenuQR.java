@@ -38,8 +38,8 @@ public class MenuQR extends ActionBarActivity {
 		eval.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				/*Log.i("TEST", "Presiona Evaluar");
-				Solicitud s = new Solicitud();*/
+				Log.i("TEST", "Presiona Evaluar");
+				Solicitud s = new Solicitud();				
 				Intent intent = new Intent(MenuQR.this, MenuComentar.class);
 				startActivity(intent);
 			}
