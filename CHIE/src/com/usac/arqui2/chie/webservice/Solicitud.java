@@ -18,59 +18,10 @@ public class Solicitud {
 	String METHOD_NAME = "";
 	String SOAP_ACTION = "";
 	public Solicitud() {
+		getMetricas("1");
 	}
 	
-	public String getContador(){
-		String usuario = "testing2";
-		String respuesta = "";
-		
-		String METHOD_NAME = "contador_comentario";
-		String SOAP_ACTION = "http://ws-chie.rhcloud.com/webservice/Servicios.php/contador_comentario";
-		
-		// Se instancia un objeto soap pasandole el namespace y el metodo del
-		// webservice a consumir
-		SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-				
-		PropertyInfo GameId = new PropertyInfo();
-		GameId.setName("gameid");
-		GameId.setValue(usuario);
-		request.addProperty(GameId);
-		
-		// Se instancia un objeto envelope y se define que version de soap se
-		// usará (10,11,12)
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(
-				SoapEnvelope.VER11);
-		envelope.setOutputSoapObject(request);
-		// envelope.dotNet = true;
-
-		// establece la comunicacion por http
-		// recordar habilitar permisos de internet
-		HttpTransportSE transporte = new HttpTransportSE(URL);
-
-		try {
-			transporte.call(SOAP_ACTION, envelope); // ejecuta la llamada
-			// SoapObject resSoap = (SoapObject) envelope.getResponse(); //
-			// obtiene respuesta
-			SoapObject resSoap = (SoapObject) envelope.bodyIn;
-
-			// lo siguiente es para recorrer, leer y guardar la respuesta en una
-			// lista
-			int nPropiedades = resSoap.getPropertyCount();
-			for (int i = 0; i < nPropiedades; i++) {
-				String valor = resSoap.getProperty(i).toString();
-				System.out.println(valor);
-				Log.i("WEBSER", valor);
-				respuesta = valor;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			Log.e("Error Webs", e.toString());
-		}
-		
-		return respuesta;
-	}
-	
-	public void getMetricas(int dato) {		
+	public void getMetricas(String dato) {		
 
 		String METHOD_NAME = "getMetrica";
 		String SOAP_ACTION = "http://ws-chie.rhcloud.com/webservice/Servicios.php/getMetrica";
