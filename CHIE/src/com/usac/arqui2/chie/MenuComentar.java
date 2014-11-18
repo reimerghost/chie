@@ -92,6 +92,7 @@ public class MenuComentar extends ActionBarActivity {
 	public void almacenar(String v1, String v2, String v3, String v4, String v5, String c){
 		//Usar el webservice de publicar
 		Log.w("Datos", v1 + "-" + v2 + "-" + v3 + "-" + v4 + "-" + v5 + "-" + c + "-");
+		
 	}
 	public void nombres_metricas(TextView tv1, TextView tv2, TextView tv3, TextView tv4, TextView tv5){
 		//LLAMAR METODO QUE DEVULEVE JSON DE LOS NOMBRES DE LAS METRICAS
