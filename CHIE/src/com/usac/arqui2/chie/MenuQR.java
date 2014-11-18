@@ -53,6 +53,7 @@ public class MenuQR extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				Intent intent = new Intent(MenuQR.this, EvaluacionesAnteriores.class);
+				intent.putExtra("string-codigo", codigo);
 				startActivity(intent);
 			}
 		});
