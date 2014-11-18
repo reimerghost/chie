@@ -34,7 +34,10 @@ public class MenuComentar extends ActionBarActivity {
 	
 	private Button b1;
 	
-	private String tipo;
+	private String codigo;
+	
+	private String id_servicio;
+	private String id_unidad;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,13 +54,18 @@ public class MenuComentar extends ActionBarActivity {
 		rb5 = (RatingBar)findViewById(R.id.rbEvValor5);
 		et1 = (EditText)findViewById(R.id.etEvComentario);
 		b1 = (Button)findViewById(R.id.btEvPublicar);
-		tipo = getIntent().getStringExtra("string-tipo");
+		codigo = getIntent().getStringExtra("string-codigo");
+		String[] separados = codigo.split(":");
+		String id_servicio = separados[0];
+		String id_unidad = separados[1];
+		
 		nombres_metricas(tv1, tv2, tv3, tv4, tv5);
 		b1.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				almacenar(String.valueOf(rb1.getRating()), String.valueOf(rb2.getRating()), String.valueOf(rb3.getRating()), String.valueOf(rb4.getRating()), String.valueOf(rb5.getRating()), et1.getText().toString());
 				Intent intent = new Intent(MenuComentar.this, MenuQR.class);
+				intent.putExtra("string-codigo", codigo);
 				startActivity(intent);
 			}
 		});
