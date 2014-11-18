@@ -3,6 +3,8 @@ package com.usac.arqui2.chie;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.usac.arqui2.chie.webservice.Solicitud;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -43,7 +45,9 @@ public class MainActivity extends Activity {
 	public void set_contador(TextView tv){
 		//LLAMAR METODO QUE DEVULEVE JSON DE LOS NOMBRES DE LAS METRICAS
 		//Asignar el resultado a la variable JSON
-		String JSON = "[{\"cont\":\"10\"}]";
+		Solicitud s = new Solicitud();
+//		String JSON = "[{\"cont\":\"10\"}]";
+		String JSON = s.getContador();
 		try{
 			JSONArray jsa = new JSONArray(JSON);
 			JSONObject JSO = jsa.getJSONObject(0);
