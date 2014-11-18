@@ -56,8 +56,8 @@ public class MenuComentar extends ActionBarActivity {
 		b1 = (Button)findViewById(R.id.btEvPublicar);
 		codigo = getIntent().getStringExtra("string-codigo");
 		String[] separados = codigo.split(":");
-		String id_servicio = separados[0];
-		String id_unidad = separados[1];
+		id_servicio = separados[0];
+		id_unidad = separados[1];
 		
 		nombres_metricas(tv1, tv2, tv3, tv4, tv5);
 		b1.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +96,9 @@ public class MenuComentar extends ActionBarActivity {
 	public void nombres_metricas(TextView tv1, TextView tv2, TextView tv3, TextView tv4, TextView tv5){
 		//LLAMAR METODO QUE DEVULEVE JSON DE LOS NOMBRES DE LAS METRICAS
 		//Asignar el resultado a la variable JSON
-		String JSON = "[{\"id_metrica\":\"1\",\"nombre\":\"Estado del bus\"},{\"id_metrica\":\"2\",\"nombre\":\"Puntualidad\"},{\"id_metrica\":\"3\",\"nombre\":\"Capacidad del bus\"},{\"id_metrica\":\"4\",\"nombre\":\"Actitud del conductor\"},{\"id_metrica\":\"5\",\"nombre\":\"Habilidad del conductor\"}]";
+		Solicitud s = new Solicitud();
+		String JSON = s.getDatos(id_servicio); 
+//		String JSON = "[{\"id_metrica\":\"1\",\"nombre\":\"Estado del bus\"},{\"id_metrica\":\"2\",\"nombre\":\"Puntualidad\"},{\"id_metrica\":\"3\",\"nombre\":\"Capacidad del bus\"},{\"id_metrica\":\"4\",\"nombre\":\"Actitud del conductor\"},{\"id_metrica\":\"5\",\"nombre\":\"Habilidad del conductor\"}]";
 		try{
 			JSONArray jsa = new JSONArray(JSON);
 			JSONObject JSO = jsa.getJSONObject(0);

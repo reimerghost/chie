@@ -43,9 +43,7 @@ public class MenuQR extends ActionBarActivity {
 		txview.setText(contenido);
 		eval.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public void onClick(View v) {
-				Log.i("TEST", "Presiona Evaluar");
-				Solicitud s = new Solicitud();				
+			public void onClick(View v) {				
 				Intent intent = new Intent(MenuQR.this, MenuComentar.class);
 				intent.putExtra("string-codigo", codigo);
 				startActivity(intent);
