@@ -20,6 +20,8 @@ public class MenuQR extends ActionBarActivity {
 	private TextView txview;
 	private Button eval;
 	private Button vere;
+	private String id_servicio;
+	private String id_unidad;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,8 +31,8 @@ public class MenuQR extends ActionBarActivity {
 		vere = (Button) findViewById(R.id.btVerEvaluaciones);
 		codigo = getIntent().getStringExtra("string-codigo");
 		String[] separados = codigo.split(":");
-		String id_servicio = separados[0];
-		String id_unidad = separados[1];
+		id_servicio = separados[0];
+		id_unidad = separados[1];
 		/*
 		 * TODO: Consumir WebService para obtener el Resumen
 		 * 
@@ -45,6 +47,7 @@ public class MenuQR extends ActionBarActivity {
 				Log.i("TEST", "Presiona Evaluar");
 				Solicitud s = new Solicitud();				
 				Intent intent = new Intent(MenuQR.this, MenuComentar.class);
+				intent.putExtra("string-codigo", codigo);
 				startActivity(intent);
 			}
 		});

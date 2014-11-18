@@ -33,12 +33,18 @@ public class EvaluacionesAnteriores extends ActionBarActivity {
 	private ExpandableListView evas;
 	private List<String> listDataHeader;
 	private HashMap<String, List<list_item>> listDataChild;
+	private String codigo;
+	private String id_servicio;
+	private String id_unidad;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_evaluaciones_anteriores);
 		evas = (ExpandableListView)findViewById(R.id.elvEvaluaciones);
- 
+		codigo = getIntent().getStringExtra("string-codigo");
+		String[] separados = codigo.split(":");
+		id_servicio = separados[0];
+		id_unidad = separados[1];
         // preparing list data
         prepareListData();
  
